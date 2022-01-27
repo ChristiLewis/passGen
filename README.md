@@ -35,7 +35,7 @@
 '''
 
 ## Credits
-* This project is an asignment from UM's coding Bootcamp https://bootcamp.miami.edu/coding/
+* This project is an assignment see [UM's Coding Bootcamp](https://bootcamp.miami.edu/coding/)
 
 ## License
 * Contents are credited as inspired by the bootcamp and developed by ChristiLewis. 
@@ -47,7 +47,7 @@
 * There are no features at this time.
 
 ## How-to-Contribute
-* Any recommendations?  Please see [contributorCovemant](https://www.contributor-covenant.org)
+* Any recommendations?  Please see [contributorCovenant](https://www.contributor-covenant.org)
 
 ## Tests
 * There are no tests at this time, we are open to suggestions.
