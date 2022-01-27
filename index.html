@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <!--Reorganize file structure and link address-->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <!--Rename div as section to signify larger container holding smaller <div> elements and update css-->
+    <section class="wrapper">
+      <header>
+        <h1>Password Generator</h1>
+      </header>
+      <!--Seems ok to leave this overall container as a generic <div>-->
+      <div class="card">
+        <!--Changing this div to label to signify the action-->
+        <label class="card-header">
+          <h2>Generate a Password</h2>
+        </label>
+        <!--Changing this div to output to signify this area is where the info will be presented-->
+        <output class="card-body">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </output>
+        <!--ok as div because it holds a button -->
+        <div class="card-footer">
+          <button id="generate" class="btn">Generate Password</button>
+        </div>
+      </div>
+    </section>
+     <!--Reorganize file structure and link address-->
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
