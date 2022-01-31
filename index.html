@@ -12,7 +12,7 @@
     <!--Rename div as section to signify larger container holding smaller <div> elements and update css-->
     <section class="wrapper">
       <header>
-        <h1>Password Generator</h1>
+        <h1>passGen</h1>
       </header>
       <!--Seems ok to leave this overall container as a generic <div>-->
       <div class="card">
@@ -20,6 +20,11 @@
         <label class="card-header">
           <h2>Generate a Password</h2>
         </label>
+        <!--Moving this div from footer to focal point to signify you need to push to start-->
+        <div class="card-focus">
+          <!--Add on click functionality-->
+          <button id="generate" class="btn" onclick="longOrShort()">Generate</button>
+        </div>
         <!--Changing this div to output to signify this area is where the info will be presented-->
         <output class="card-body">
           <textarea
@@ -29,10 +34,8 @@
             aria-label="Generated Password"
           ></textarea>
         </output>
-        <!--ok as div because it holds a button -->
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
-        </div>
+        <!--Ok as div because it holds a button.  -->
+        
       </div>
     </section>
      <!--Reorganize file structure and link address-->
