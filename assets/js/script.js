@@ -18,6 +18,72 @@ var myExpression = function(){
 
 myExpression();
 
+// function getRandomInt(max) {
+//   return Math.floor(Math.random() * max);
+// }
+
+// console.log(getRandomInt(128));
+// expected output: 0-128
+// Below provides a function that returns a value between the specified values
+// no lower than but perhaps equal to the min and less than but not equal to the max
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+console.log(getRandomArbitrary(9, 129));
+
+// Below is a way to get an integer back between two values
+function getRandomInt(min, max) {
+  min = Math.ceil(9);
+  max = Math.floor(129);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
+
+//console.log(getRandomInt);
+
+
+console.log(getRandomInt(1));
+// expected output: 0
+
+console.log(Math.random());
+// expected output: a number from 0 to <1 See below in function form
+function getRandom() {
+  return Math.random();
+}
+
+//crypto.getRandomValues(typedArray)
+/* Assuming that window.crypto.getRandomValues is available */
+
+var array = new Uint32Array(10);
+self.crypto.getRandomValues(array);
+
+console.log("Your lucky numbers:");
+for (var i = 0; i < array.length; i++) {
+  console.log(array[i]);
+}
+
+
+
+
+var shortPasswd = function() {
+   
+  var randomInt = function() {
+    var value = Math.floor(Math.random() * 21) + 40;
+    console.log(value)
+    //One way for the short password that needs all of the characters to make a secure code
+    stringSetOfCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&'()*+,-./:;<=>?@[^_`{|}~ ";
+
+    randomInt = random.nextInt(stringSetOfCharacters.length());
+
+    randomChar = stringSetOfCharacters.charAt(randomInt);
+
+    return textContent("Your short Passcode:" + (randomChar) *8 );
+  }
+}
+
+shortPasswd();
+console.log(shortPasswd)
+
 var a = "a";
 
 var logStuff = function() {
@@ -37,16 +103,17 @@ var longOrShort = function() {
 // This is a number data type
 var userPasswdLength = 128
 console.log(userPasswdLength)
+var userPasswdShort = 8
+var userPasswdLong = randomNumber
 
 // function to generate a random numeric value
 var randomNumber = function() {
   var value = Math.floor(Math.random() * 21) + 40;
+  console.log(value)
   return value;
 };
 
 randomNumber();
-console.log(randomNumber)
-
 
 const btn = document.querySelector('button');
 
@@ -63,7 +130,7 @@ btn.addEventListener('click', () => {
     // Conditional Recursive Function Call- CAN REPLACE || WITH A NOT ! LOGIC if (!promptShort) {
     if (promptLength === "" || promptLength === null) {
       window.alert("You need to provide a valid answer! Please try again.");
-      return true
+      return true;
     }
     // Add promptShort conversion to all lowercase letters with the toLowerCase() function
     promptLength = promptLength.toLowerCase();
@@ -75,8 +142,8 @@ btn.addEventListener('click', () => {
       // if yes (true), skip criteria selection to auto include all
       if (confirmShort) {
         window.alert(" This will auto-select all criteria to generate a random 8 character password");
-        // define smallest length of 8 characters from a max set of 128
-        userInfo.passwdShort = Math.max(0, userInfo.length - 120);
+        // global scope defined above-now add characters
+        userPasswdShort = Math.max(0, userInfo.length - 120);
         // return true if player wants a short
         return true;
         userInfo.passwdShort;
