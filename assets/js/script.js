@@ -18,6 +18,44 @@ var myExpression = function(){
 
 myExpression();
 
+//stackoverflow-example post prompt text to the page via HTML by Bamar https://stackoverflow.com/users/1491895/barmar
+function getName() {
+  var person = prompt("Please enter your first name", "Your Name");
+  var x = document.getElementById('personName');
+  x.textContent = person;
+}
+
+getName();
+
+function getShortPasswd(){
+  var short = window.prompt("Here is your random short password:", ((o=8,n="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&()*+,-./:;<=>?@[^_`{|}~")=>Array.from(crypto.getRandomValues(new Uint32Array(o))).map(o=>n[o%n.length]).join(""))())
+  var y = document.getElementById('password');
+  y.textContent = short;
+}
+
+getShortPasswd();
+
+//stackoverflow bookmarklet by Ninh Pahm https://stackoverflow.com/users/1099314/ninh-pham
+// modified code ie text, javascript:prompt to window.prompt, and from 20 to 8 for Short Password
+//window.prompt("Random short password:", ((o=8,n="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&()*+,-./:;<=>?@[^_`{|}~")=>Array.from(crypto.getRandomValues(new Uint32Array(o))).map(o=>n[o%n.length]).join(""))())
+
+// below from stack has error that getRandowValues is not a function - adding below
+// function getRandomValues() {
+//   var array = new Uint32Array(1);
+//   self.crypto.getRandomValues(array);
+//   //stackoverflow suggestions-
+//   var generatePassword = (
+//     length = 8,
+//     wishlist = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&()*+,-./:;<=>?@[^_`{|}~'
+//   ) =>
+//   Array.from(self.crypto.getRandonValues(new Uint32Array(length)))
+//     .map((x) => wishlist[x % wishlist.length])
+//     .join('')
+
+// console.log(generatePassword())
+// }
+
+
 // function getRandomInt(max) {
 //   return Math.floor(Math.random() * max);
 // }
@@ -54,35 +92,59 @@ function getRandom() {
 //crypto.getRandomValues(typedArray)
 /* Assuming that window.crypto.getRandomValues is available */
 
-var array = new Uint32Array(10);
+var array = new Uint32Array(1);
 self.crypto.getRandomValues(array);
 
-console.log("Your lucky numbers:");
+console.log("Your random password:");
 for (var i = 0; i < array.length; i++) {
   console.log(array[i]);
 }
 
+// //The following is from VC-9 jquery shortcut-this solution skips ahead when solved
+// var passwordBtnEl = $('#password-btn');
+// //debugger
+// var passwordDisplayEl = $('#password-display');
+
+// // Returns a random character that includes alphanumeric and special character values
+// function getPasswordCharacter() {
+//   return String.fromCharCode(Math.floor(Math.random() * 77) + 34);
+// }
+
+// // Returns a string of concatenated characters of length num
+// function passwordGenerator(num) {
+//   var password = '';
+//   for (var i = 0; i < num; i++) {
+//     password += getPasswordCharacter();
+//   }
+//   return password;
+// }
+
+// passwordBtnEl.on('click', function () {
+//   //debugger
+//   var newPassword = passwordGenerator(15);
+//   passwordDisplayEl.text(newPassword);
+// });
 
 
-
-var shortPasswd = function() {
+//The experiment below didn't work
+// var shortPasswd = function() {
    
-  var randomInt = function() {
-    var value = Math.floor(Math.random() * 21) + 40;
-    console.log(value)
-    //One way for the short password that needs all of the characters to make a secure code
-    stringSetOfCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&'()*+,-./:;<=>?@[^_`{|}~ ";
+//   var randomInt = function() {
+//     var value = Math.floor(Math.random() * 21) + 40;
+//     console.log(value)
+//     //One way for the short password that needs all of the characters to make a secure code
+//     stringSetOfCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&'()*+,-./:;<=>?@[^_`{|}~ ";
 
-    randomInt = random.nextInt(stringSetOfCharacters.length());
+//     randomInt = random.nextInt(stringSetOfCharacters.length());
 
-    randomChar = stringSetOfCharacters.charAt(randomInt);
+//     randomChar = stringSetOfCharacters.charAt(randomInt);
 
-    return textContent("Your short Passcode:" + (randomChar) *8 );
-  }
-}
+//     return textContent("Your short Passcode:" + (randomChar) *8 );
+//   }
+// }
 
-shortPasswd();
-console.log(shortPasswd)
+// shortPasswd();
+// console.log(shortPasswd)
 
 var a = "a";
 
@@ -96,15 +158,14 @@ console.log(a);
 //console.log(b); // error
 logStuff();
 
-var longOrShort = function() {
-  //debugger
+
   // ask user if they want a small or large password
-};
+
 // This is a number data type
-var userPasswdLength = 128
-console.log(userPasswdLength)
-var userPasswdShort = 8
-var userPasswdLong = randomNumber
+// var userPasswdLength = 128
+// console.log(userPasswdLength)
+// var userPasswdShort = 8
+// var userPasswdLong = randomNumber
 
 // function to generate a random numeric value
 var randomNumber = function() {
@@ -124,7 +185,10 @@ function random(number) {
 btn.addEventListener('click', () => {
   const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
   document.body.style.backgroundColor = rndCol;
+
  
+  function longOrShort() {  
+  
   var promptLength = window.prompt('Would you like a SHORT or LONG password? Enter "S" or "L" to choose.');
 
     // Conditional Recursive Function Call- CAN REPLACE || WITH A NOT ! LOGIC if (!promptShort) {
@@ -157,7 +221,7 @@ btn.addEventListener('click', () => {
       }
     } 
   }
-);
+});
 
 
 // function to generate a random numeric value
