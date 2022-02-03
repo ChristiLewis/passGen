@@ -1,15 +1,5 @@
 // // Assignment code here
-// function myDeclaration() {
-//   alert("This message is coded as a declaration");
-// };
-
-// myDeclaration();
-
-// var myExpression = function(){
-//   alert("This message is coded as an expression");
-// };
-
-// myExpression();
+// Passwords are difficult to come up with and it was a very challenging assignment so here is my expression to gain user empathy!
 
 var myExpression = function(){
    //alert("#$%&'()*+,-./:;<=>?@[\]^_`{|}~");
@@ -17,7 +7,7 @@ var myExpression = function(){
 };
 
 myExpression();
-//Here the user is immediately involved
+//Here the user is immediately involved, and we return to civility inspired by Bamar
 //stackoverflow-example post prompt text to the page via HTML by Bamar https://stackoverflow.com/users/1491895/barmar
 function getName() {
   var person = prompt("Please enter your first name", "Your Name");
@@ -27,7 +17,7 @@ function getName() {
 
 getName();
 
-// Commenting-out or removing experiments to move the visual page before the next user interaction
+// Commenting-out or removing experiments to clean-up the code, see prior versions to see the mess!
 
 // Below is a way to get an integer back between two values
 function getRandomInt(min, max) {
@@ -37,6 +27,7 @@ function getRandomInt(min, max) {
 }
 
 console.log(getRandomInt);
+getRandomInt();
 
 console.log(Math.random());
 // expected output: a number from 0 to <1 See below in function form
@@ -66,16 +57,27 @@ var randomNumber = function() {
 
 randomNumber();
 
-const btn = document.querySelector('button');
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
 
-function random(number) {
-  return Math.floor(Math.random() * (number+1));
-}
+//   passwordText.value = password;
 
-btn.addEventListener('click', () => {
-  const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
-  document.body.style.backgroundColor = rndCol; 
-  var promptLength = window.prompt('Would you like a SHORT or LONG password? Enter "S" or "L" to choose.');
+// }
+
+function passGen() {
+  //debugger
+  const btn = document.querySelector('button');
+
+  function random(number) {
+    return Math.floor(Math.random() * (number + 1));
+  }
+  //Here is a wildcard- I found a random color generator that I am incorporating
+  btn.addEventListener('click', () => {
+    const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+    document.body.style.backgroundColor = rndCol;
+
+    var promptLength = window.prompt('Would you like a SHORT or LONG password? Enter "S" or "L" to choose.');
 
     // Conditional Recursive Function Call- CAN REPLACE || WITH A NOT ! LOGIC if (!promptShort) {
     if (promptLength === "" || promptLength === null) {
@@ -86,81 +88,136 @@ btn.addEventListener('click', () => {
     promptLength = promptLength.toLowerCase();
     // if user picks "s" confirm and continue
     if (promptLength === "s") {
-    // confirm size
-      var confirmShort = window.confirm("You selected a short password, please confirm!");
+      // confirm size
+      var confirmShort = window.confirm("You selected a short password. This will auto-select all criteria to generate a random 8 character password; please confirm!");
 
       // if yes (true), skip criteria selection to auto include all
       if (confirmShort) {
-        var short = window.prompt("Here is your random short password:", ((o=8,n="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&()*+,-./:;<=>?@[^_`{|}~")=>Array.from(crypto.getRandomValues(new Uint32Array(o))).map(o=>n[o%n.length]).join(""))())
+        var short = window.prompt("Here is your random short password:", ((o = 8, n = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&()*+,-./:;<=>?@[^_`{|}~") => Array.from(crypto.getRandomValues(new Uint32Array(o))).map(o => n[o % n.length]).join(""))());
         var z = document.getElementById('password');
         z.textContent = short;
-        //window.alert(" This will auto-select all criteria to generate a random 8 character password");
-        // global scope defined above-now add characters
-        //userPasswdShort = Math.max(0, userInfo.length - 120);
-        // return true if player wants a short
+        // return true if user wants a short quick passcode
         return true;
-       // userInfo.passwdShort;
-
-      // if no (false), return to criteria
       }
       else {
-        startCriteria();
-        return false;
-        
+      (promptLength === "l");
+      var confirmLong = window.confirm("You selected a long password. This means you will be asked to accept or reject a random length and series of criteria; please confirm.");
+      if (confirmLong) {
+        var pickedUserObj = userInfo[i];
+        pickedUserObj.length = randomNumber(9 - 128);
+        long(pickedUserObj);
+        for (var i = 0; i < userInfo.length; i++) {
+          if (userInfo.length > 9 && i < userInfo.length < 129) {
+            window.confirm("Please choose criteria to make a long password" + (i + 1) + "characters in length");
+            // Defining a long passcode; if yes, take them to the startCiteria() function
+            startCriteria();
+            return true;
+          }
+          else {
+            promptLength();
+            return true;
+          }
+        }
+
       }
-    } 
-  }
-);
+      else {
+        window.alert("Ok, see you next time!");
+
+      }
+    }
+  };
+}     
 
 
+// if ()
+               
+//                   window.confirm("Would you like to include Uppercase characters?");
+//                   window.confirm("Would you like to include lowercase characters?");
+//                   window.confirm("Would you like to include number characters?");
+//                   window.confirm("Would you like to include special characters?");
+              
 
-// function to generate a random numeric value
-var randomNumber = function(min, max) {
-  var value = Math.floor(Math.random() * (max - min + 1) + min);
+//function for password by Sadhana Rajan https://stackoverflow.com/users/8728220/sadhana-rajan
+// function getRandomUpperCase() {
+//   return String.fromCharCode( Math.floor( Math.random() * 26 ) + 65 );
+// }
 
-  return value;
-};
+// function getRandomLowerCase() {
+//   return String.fromCharCode( Math.floor( Math.random() * 26 ) + 97 );
+// } 
+
+// function getRandomNumber() {
+//   return String.fromCharCode( Math.floor( Math.random() * 10 ) + 48 );
+// }
+
+// function getRandomSymbol() {
+//    // const symbol = '!@#$%^&*(){}[]=<>/,.|~?';
+//    const symbol = '!@$&';
+//    return symbol[ Math.floor( Math.random() * symbol.length ) ];
+// }
+
+// const randomFunc = [ getRandomUpperCase, getRandomLowerCase, getRandomNumber, getRandomSymbol ];
+
+// function getRandomFunc() {
+//    return randomFunc[Math.floor( Math.random() * Object.keys(randomFunc).length)];
+// }
+
+// function generatePassword() {
+//    let password = '';
+//    const passwordLength = Math.random() * (32 - 8) + 8;
+//    for( let i = 1; i <= passwordLength; i++ ) {
+//        password += getRandomFunc()();
+//    }
+//    //check with regex
+//    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}$/
+//    if( !password.match(regex) ) {
+//        password = generatePassword();
+
+// // function to generate a random numeric value
+// var randomNumber = function(min, max) {
+//   var value = Math.floor(Math.random() * (max - min + 1) + min);
+
+//   return value;
+// };
 
 
 // function to start criteria selection
-var startCriteria = function() {
+function startCriteria() {
   //debugger
   // reset USER stats REFER TO NEW OBJECT FUNCTION (METHOD)
   //userInfo.reset();
-  
   for (var i = 0; i < userInfo.length; i++) {
     if (userInfo.length > 8) {
       window.alert("Please choose criteria to make a long password" + (i + 1) + "characters in length");
       //debugger
       var pickedUserObj = userInfo[i];
 
-      //enemy.health = Math.floor(Math.random() * 21) + 40;
-      pickedUserObj.length = randomNumber(9-128);
+      //confirmLong = Math.floor(Math.random() * 21) + 40;
+      pickedUserObj.length = randomNumber(9 - 128);
 
       long(pickedUserObj);
 
       // if player is still alive and we're not at the last enemy in the array
-      if (userInfo.length > 9 && i < userInfo.length < 24) {
+      if (userInfo.length > 9 && i < userInfo.length < 129) {
         // ask if user wants to use the auto random selector before next criteria
         var shortConfirm = window.confirm("Would you like to randomly generate your password?");
-      
-        // if yes, take them to the store() function
+
+        // if yes, take them to the promptLength() function
         if (shortConfirm) {
-          passGen();
+          promptLength();
         }
       }
     }
     else {
-      window.alert("You have lost your robot in battle! Game Over!");
+      window.alert("Ok, see you next time!");
       break;
-    }    
+    }
   }
   // play again- I THINK THE ENDGAME FUNCTION REPLACES THE startCriteria HERE
   //startCriteria();
-
   // after the loop ends, player is either out of health or enemies to fight, so run the endGame function
   endGame();
-};
+}
 
 
 var fight = function(enemy) {
@@ -247,14 +304,14 @@ var fight = function(enemy) {
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+// // Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+//   passwordText.value = password;
 
-}
+// }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// // Add event listener to generate button
+// generateBtn.addEventListener("click", writePassword)
