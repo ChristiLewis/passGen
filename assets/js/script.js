@@ -17,7 +17,7 @@ var myExpression = function(){
 };
 
 myExpression();
-
+//Here the user is immediately involved
 //stackoverflow-example post prompt text to the page via HTML by Bamar https://stackoverflow.com/users/1491895/barmar
 function getName() {
   var person = prompt("Please enter your first name", "Your Name");
@@ -27,48 +27,7 @@ function getName() {
 
 getName();
 
-function getShortPasswd(){
-  var short = window.prompt("Here is your random short password:", ((o=8,n="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&()*+,-./:;<=>?@[^_`{|}~")=>Array.from(crypto.getRandomValues(new Uint32Array(o))).map(o=>n[o%n.length]).join(""))())
-  var y = document.getElementById('password');
-  y.textContent = short;
-}
-
-getShortPasswd();
-
-//stackoverflow bookmarklet by Ninh Pahm https://stackoverflow.com/users/1099314/ninh-pham
-// modified code ie text, javascript:prompt to window.prompt, and from 20 to 8 for Short Password
-//window.prompt("Random short password:", ((o=8,n="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&()*+,-./:;<=>?@[^_`{|}~")=>Array.from(crypto.getRandomValues(new Uint32Array(o))).map(o=>n[o%n.length]).join(""))())
-
-// below from stack has error that getRandowValues is not a function - adding below
-// function getRandomValues() {
-//   var array = new Uint32Array(1);
-//   self.crypto.getRandomValues(array);
-//   //stackoverflow suggestions-
-//   var generatePassword = (
-//     length = 8,
-//     wishlist = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&()*+,-./:;<=>?@[^_`{|}~'
-//   ) =>
-//   Array.from(self.crypto.getRandonValues(new Uint32Array(length)))
-//     .map((x) => wishlist[x % wishlist.length])
-//     .join('')
-
-// console.log(generatePassword())
-// }
-
-
-// function getRandomInt(max) {
-//   return Math.floor(Math.random() * max);
-// }
-
-// console.log(getRandomInt(128));
-// expected output: 0-128
-// Below provides a function that returns a value between the specified values
-// no lower than but perhaps equal to the min and less than but not equal to the max
-function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
-}
-
-console.log(getRandomArbitrary(9, 129));
+// Commenting-out or removing experiments to move the visual page before the next user interaction
 
 // Below is a way to get an integer back between two values
 function getRandomInt(min, max) {
@@ -77,11 +36,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
 
-//console.log(getRandomInt);
-
-
-console.log(getRandomInt(1));
-// expected output: 0
+console.log(getRandomInt);
 
 console.log(Math.random());
 // expected output: a number from 0 to <1 See below in function form
@@ -91,81 +46,16 @@ function getRandom() {
 
 //crypto.getRandomValues(typedArray)
 /* Assuming that window.crypto.getRandomValues is available */
+//This only makes numeric codes- works but NA
+// var array = new Uint32Array(1);
+// self.crypto.getRandomValues(array);
 
-var array = new Uint32Array(1);
-self.crypto.getRandomValues(array);
-
-console.log("Your random password:");
-for (var i = 0; i < array.length; i++) {
-  console.log(array[i]);
-}
-
-// //The following is from VC-9 jquery shortcut-this solution skips ahead when solved
-// var passwordBtnEl = $('#password-btn');
-// //debugger
-// var passwordDisplayEl = $('#password-display');
-
-// // Returns a random character that includes alphanumeric and special character values
-// function getPasswordCharacter() {
-//   return String.fromCharCode(Math.floor(Math.random() * 77) + 34);
+// console.log("Your random password:");
+// for (var i = 0; i < array.length; i++) {
+//   console.log(array[i]);
 // }
 
-// // Returns a string of concatenated characters of length num
-// function passwordGenerator(num) {
-//   var password = '';
-//   for (var i = 0; i < num; i++) {
-//     password += getPasswordCharacter();
-//   }
-//   return password;
-// }
 
-// passwordBtnEl.on('click', function () {
-//   //debugger
-//   var newPassword = passwordGenerator(15);
-//   passwordDisplayEl.text(newPassword);
-// });
-
-
-//The experiment below didn't work
-// var shortPasswd = function() {
-   
-//   var randomInt = function() {
-//     var value = Math.floor(Math.random() * 21) + 40;
-//     console.log(value)
-//     //One way for the short password that needs all of the characters to make a secure code
-//     stringSetOfCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&'()*+,-./:;<=>?@[^_`{|}~ ";
-
-//     randomInt = random.nextInt(stringSetOfCharacters.length());
-
-//     randomChar = stringSetOfCharacters.charAt(randomInt);
-
-//     return textContent("Your short Passcode:" + (randomChar) *8 );
-//   }
-// }
-
-// shortPasswd();
-// console.log(shortPasswd)
-
-var a = "a";
-
-var logStuff = function() {
-  var b = "b";
-  console.log(a);
-  console.log(b);
-};
-
-console.log(a);
-//console.log(b); // error
-logStuff();
-
-
-  // ask user if they want a small or large password
-
-// This is a number data type
-// var userPasswdLength = 128
-// console.log(userPasswdLength)
-// var userPasswdShort = 8
-// var userPasswdLong = randomNumber
 
 // function to generate a random numeric value
 var randomNumber = function() {
@@ -184,11 +74,7 @@ function random(number) {
 
 btn.addEventListener('click', () => {
   const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
-  document.body.style.backgroundColor = rndCol;
-
- 
-  function longOrShort() {  
-  
+  document.body.style.backgroundColor = rndCol; 
   var promptLength = window.prompt('Would you like a SHORT or LONG password? Enter "S" or "L" to choose.');
 
     // Conditional Recursive Function Call- CAN REPLACE || WITH A NOT ! LOGIC if (!promptShort) {
@@ -198,19 +84,22 @@ btn.addEventListener('click', () => {
     }
     // Add promptShort conversion to all lowercase letters with the toLowerCase() function
     promptLength = promptLength.toLowerCase();
-    // if player picks "s" confirm and continue
+    // if user picks "s" confirm and continue
     if (promptLength === "s") {
     // confirm size
       var confirmShort = window.confirm("You selected a short password, please confirm!");
 
       // if yes (true), skip criteria selection to auto include all
       if (confirmShort) {
-        window.alert(" This will auto-select all criteria to generate a random 8 character password");
+        var short = window.prompt("Here is your random short password:", ((o=8,n="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&()*+,-./:;<=>?@[^_`{|}~")=>Array.from(crypto.getRandomValues(new Uint32Array(o))).map(o=>n[o%n.length]).join(""))())
+        var z = document.getElementById('password');
+        z.textContent = short;
+        //window.alert(" This will auto-select all criteria to generate a random 8 character password");
         // global scope defined above-now add characters
-        userPasswdShort = Math.max(0, userInfo.length - 120);
+        //userPasswdShort = Math.max(0, userInfo.length - 120);
         // return true if player wants a short
         return true;
-        userInfo.passwdShort;
+       // userInfo.passwdShort;
 
       // if no (false), return to criteria
       }
@@ -221,7 +110,8 @@ btn.addEventListener('click', () => {
       }
     } 
   }
-});
+);
+
 
 
 // function to generate a random numeric value
