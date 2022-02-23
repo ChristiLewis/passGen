@@ -134,109 +134,113 @@ function passGen() {
   //                   window.confirm("Would you like to include special characters?");
 
 
-  // function for password by Sadhana Rajan https://stackoverflow.com/users/8728220/sadhana-rajan
-  // function getRandomUpperCase() {
-  //   return String.fromCharCode( Math.floor( Math.random() * 26 ) + 65 );
-  // }
+  function for password by Sadhana Rajan https://stackoverflow.com/users/8728220/sadhana-rajan
+  function getRandomUpperCase() {
+    return String.fromCharCode( Math.floor( Math.random() * 26 ) + 65 );
+  }
 
-  // function getRandomLowerCase() {
-  //   return String.fromCharCode( Math.floor( Math.random() * 26 ) + 97 );
-  // } 
+  function getRandomLowerCase() {
+    return String.fromCharCode( Math.floor( Math.random() * 26 ) + 97 );
+  } 
 
-  // function getRandomNumber() {
-  //   return String.fromCharCode( Math.floor( Math.random() * 10 ) + 48 );
-  // }
+  function getRandomNumber() {
+    return String.fromCharCode( Math.floor( Math.random() * 10 ) + 48 );
+  }
 
-  // function getRandomSymbol() {
-  //    // const symbol = '!@#$%^&*(){}[]=<>/,.|~?';
-  //    const symbol = '!@$&';
-  //    return symbol[ Math.floor( Math.random() * symbol.length ) ];
-  // }
+  function getRandomSymbol() {
+     // const symbol = '!@#$%^&*(){}[]=<>/,.|~?';
+     const symbol = '!@$&';
+     return symbol[ Math.floor( Math.random() * symbol.length ) ];
+  }
 
-  // const randomFunc = [ getRandomUpperCase, getRandomLowerCase, getRandomNumber, getRandomSymbol ];
+  const randomFunc = [ getRandomUpperCase, getRandomLowerCase, getRandomNumber, getRandomSymbol ];
 
-  // function getRandomFunc() {
-  //    return randomFunc[Math.floor( Math.random() * Object.keys(randomFunc).length)];
-  // }
+  function getRandomFunc() {
+     return randomFunc[Math.floor( Math.random() * Object.keys(randomFunc).length)];
+  }
 
-  // function generatePassword() {
-  //   let password = '';
-  //   const passwordLength = Math.random() * (32 - 8) + 8;
-  //   for (let i = 1; i <= passwordLength; i++) {
-  //     password += getRandomFunc()();
-  //   }
-  //   //check with regex
-  //   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}$/
-  //   if (!password.match(regex)) {
-  //     password = generatePassword();
-
-  //     // function to generate a random numeric value
-  //     var randomNumber = function (min, max) {
-  //       var value = Math.floor(Math.random() * (max - min + 1) + min);
-
-  //       return value;
-  //     };
-
-
-  //     Get references to the #generate element
-  //     var generateBtn = document.querySelector("#generate");
-
-  //     // Write password to the #password input
-  //     function writePassword() {
-  //       var password = generatePassword();
-  //       var passwordText = document.querySelector("#password");
-
-  //       passwordText.value = password;
-
-  //     }
-  //     function randomChar(array) {
-  //       var randomIndex = Math.floor(Math.random() * array.length);
-  //       var randomElement = array[randomIndex];
-  //       return randomElement
-
-  //     }
-  //     // // Add event listener to generate button
-  //     // generateBtn.addEventListener("click", writePassword);
-  //     var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-  //     var uppercase = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
-  //     var lowercase = ["abcdefghijklmnopqrstuvwxyz"]
-  //     var special = ["#$%&'()*+,-./:;<=>?@[^_`{|}~"]
-
-
-
-  function longPass() {
-    var passLength = prompt("How long do you want your password to be? Please select a number between 9-128");
-    var confirmNumbers = confirm("Do you want to include numbers?")
-    var confirmUpper = confirm("Do you want to include uppercase letters?")
-    var confirmLower = confirm("Do you want to include lowercase letters?")
-    var confirmSpecial = confirm("Do you want to include special symbols?")
-    var possibleArray = []
-    var finalPass = []
-
-    if (confirmNumbers === true) {
-      possibleArray.push(numbers);
+  function generatePassword() {
+    let password = '';
+    const passwordLength = Math.random() * (32 - 8) + 8;
+    for (let i = 1; i <= passwordLength; i++) {
+      password += getRandomFunc()();
     }
+    //check with regex
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}$/
+    if (!password.match(regex)) {
+      password = generatePassword();
 
-    if (confirmUpper === true) {
-      possibleArray.push(uppercase);
-    }
+      // function to generate a random numeric value
+      var randomNumber = function (min, max) {
+        var value = Math.floor(Math.random() * (max - min + 1) + min);
 
-    if (confirmLower === true) {
-      possibleArray.push(lowercase);
-    }
+        return value;
+      };
 
-    if (confirmSpecial === true) {
-      possibleArray.push(special);
-    }
 
-    if (passLength > 9 && passLength < 129) {
-      return true
-    }
+      Get references to the #generate element
+      var generateBtn = document.querySelector("#generate");
 
-    for (let i = 0; i < passlength; i++) {
-      const possibleChar = randomChar(possibleArray);
-      finalPass.push(possibleChar);
-      console.log(finalPass);
+      // Write password to the #password input
+      function writePassword() {
+        var password = generatePassword();
+        var passwordText = document.querySelector("#password");
+
+        passwordText.value = password;
+
+      }
+      function randomChar(array) {
+        var randomIndex = Math.floor(Math.random() * array.length);
+        var randomElement = array[randomIndex];
+        return randomElement
+
+      }
+      // // Add event listener to generate button
+      // generateBtn.addEventListener("click", writePassword);
+      var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+      var uppercase = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+      var lowercase = ["abcdefghijklmnopqrstuvwxyz"]
+      var special = ["#$%&'()*+,-./:;<=>?@[^_`{|}~"]
+
+
+
+      function longPass() {
+        var passLength = prompt("How long do you want your password to be? Please select a number between 9-128");
+        var confirmNumbers = confirm("Do you want to include numbers?")
+        var confirmUpper = confirm("Do you want to include uppercase letters?")
+        var confirmLower = confirm("Do you want to include lowercase letters?")
+        var confirmSpecial = confirm("Do you want to include special symbols?")
+        var possibleArray = []
+        var finalPass = []
+
+        if (confirmNumbers === true) {
+          possibleArray.push(numbers);
+        }
+
+        if (confirmUpper === true) {
+          possibleArray.push(uppercase);
+        }
+
+        if (confirmLower === true) {
+          possibleArray.push(lowercase);
+        }
+
+        if (confirmSpecial === true) {
+          possibleArray.push(special);
+        }
+
+        if (passLength > 9 && passLength < 129) {
+          return true
+        }
+
+        for (let i = 0; i < passlength; i++) {
+          const possibleChar = randomChar(possibleArray);
+          finalPass.push(possibleChar);
+          console.log(finalPass);
+        }
+
+
+      }
     }
   }
 }
