@@ -72,11 +72,30 @@ function passGen() {
     };
 
     var passLength = prompt("How long do you want your password to be? Please select a number between 9-128"));
-    if (isNaN(passLength) || passLength != n { 
+    if (isNaN(passLength) || passLength != n) { 
         alert('Please choose a number between 9-128')
         return null;
     } else {
-        return;
+        return n;
+    
+    function possibleArray(passwordLength) {
+        for (let i = 0; i < passwordLength; i++) {
+            const possibleChar = randomChar(possibleArray);
+            finalPass.push(possibleChar);
+            finalPass.join('possibleChar');
+            const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+            document.body.style.backgroundColor = rndCol;
+        };
+        console.log(finalPass)
+        
+        
+        function randomChar(possibleArray) {
+            var randomIndex = Math.floor(Math.random() * possibleArray.length);
+            var randomElement = possibleArray[randomIndex];
+            console.log(randomElement);
+            return randomElement;
+        };
+        
 
     };
 
@@ -90,22 +109,6 @@ function passGen() {
 // RANDOMLY SELECT A VALUE FROM THE POSSIBLE
 // JOIN THE PASSWORD ARRAY AND RETURN THE PASSWORD
 
-for (let i = 0; i < passLength; i++) {
-    const possibleChar = randomChar(possibleArray);
-    finalPass.push(possibleChar);
-    finalPass.join('possibleChar');
-    const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
-    document.body.style.backgroundColor = rndCol;
-};
-console.log(finalPass)
-
-
-function randomChar(possibleArray) {
-    var randomIndex = Math.floor(Math.random() * possibleArray.length);
-    var randomElement = possibleArray[randomIndex];
-    console.log(randomElement);
-    return randomElement;
-};
 
 
 
