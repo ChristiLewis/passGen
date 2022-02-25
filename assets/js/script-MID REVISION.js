@@ -86,7 +86,7 @@ function passGen() {
             const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
             document.body.style.backgroundColor = rndCol;
         };
-        console.log(finalPass)
+        console.log(finalPass);
         
         
         function randomChar(possibleArray) {

@@ -1,12 +1,7 @@
 // Assignment Code
-//Added some extra intro user interaction
-
-
 //GLOBAL SCOPE VARIABLES LISTED. NOTE: CHARACTER ARRAY BY JORDAN MASONE BACK TO HORIZ BY CLC
 
 var generateBtn = document.querySelector("#generate");
-
-var possibleArray = [];
 
 const numbers = [
   0, 1, 2, 3, 4, 5, 6, 7, 8, 9
@@ -33,93 +28,85 @@ function getName() {
 
 getName();
 
+
+
 function passwordGenerator() {
   alert("Let passGen take the #$%&! out of making a new password!");
 
   //FIGURE OUT THE USER'S PREFERRED VALUES
   //COMBINE INPUT INTO AN ARRAY
+    var promptLength = window.prompt("How long do you want your password to be? Please select a number between 8-128");
+    if (promptLength < 8 || promptLength > 128 || promptLength === "") {
 
-  var promptLength = window.prompt("How long do you want your password to be? Please select a number between 8-128");
-  if (promptLength < 8 || promptLength > 128 || promptLength === "") {
-    alert('Please type in a number greater than (7) but less than (129).')
-    passwordGenerator();
-  } else {
-    console.log(promptLength);
+      alert('Please type in a number greater than (7) but less than (129).')
+      passwordGenerator();
 
-    var confirmNumbers = confirm("Do you want to include numbers?");
-    if (confirmNumbers === false) {
-      var possibleArray1 = [""];
     } else {
-      possibleArray1 = (numbers);
-    };
-    console.log(possibleArray1);
+      console.log(promptLength);
 
-    var confirmUpper = confirm("Do you want to include uppercase letters?");
-    if (confirmUpper === false) {
-      var possibleArray2 = [""];
-    } else {
-      possibleArray2 = possibleArray1.concat(upperCasedChar);
-    };
-    console.log(possibleArray2);
+      var confirmNumbers = confirm("Do you want to include numbers?");
+      if (confirmNumbers === false) {
+        var possibleArray1 = [""];
 
-    var confirmLower = confirm("Do you want to include lowercase letters?");
-    if (confirmLower === false) {
-      var possibleArray3 = [""];
-    } else {
-      possibleArray3 = possibleArray2.concat(lowerCasedChar);
-    };
-    console.log(possibleArray3);
-
-    var confirmSpecial = confirm("Do you want to include special symbols?");
-    if (confirmSpecial === false) {
-      var possibleArray4 = [""];
-      possibleArray4.concat(possibleArray1, possibleArray2, possibleArray3)
-        alert("Please choose at least one character type for your password")
-        passwordGenerator();
-    } else {
-      possibleArray4 = possibleArray3.concat(specialChar)
-    };
-    console.log(possibleArray4);
-
-    function randomChar(possibleArray) {
-      var randomIndex = Math.floor(Math.random() * promptLength);
-      var randomElement = possibleArray[randomIndex];
-      console.log(randomElement);
-      return randomElement;
-    };
-
-    function possibleArray() {
-      for (let i = 0; i < passwordLength; i++) {
-        const possibleChar = randomChar(possibleArray);
-        finalPass.concat(possibleChar);
-        finalPass.join(possibleArray,possibleArray1, possibleArray2, possibleArray3, possibleArray4);
-        const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
-        document.body.style.backgroundColor = rndCol;
+      } else {
+        possibleArray1 = (numbers);
       };
-      console.log(finalPass)
 
-    };
+      console.log(possibleArray1);
 
+      var confirmUpper = confirm("Do you want to include uppercase letters?");
+      if (confirmUpper === false) {
+        var possibleArray2 = [""];
 
+      } else {
+        possibleArray2 = possibleArray1.concat(upperCasedChar);
+      };
+
+      console.log(possibleArray2);
+
+      var confirmLower = confirm("Do you want to include lowercase letters?");
+      if (confirmLower === false) {
+        var possibleArray3 = [""];
+
+      } else {
+        possibleArray3 = possibleArray2.concat(lowerCasedChar);
+      };
+
+      console.log(possibleArray3);
+
+      var confirmSpecial = confirm("Do you want to include special symbols?");
+      if (confirmSpecial === false) {
+        var possibleArray4 = [""];
+
+      } else if (possibleArray4 === [""] && possibleArray3.concat(specialChar) === [""]) {
+        alert("Please choose at least one character type for your password");
+        passwordGenerator();
+
+      } else {
+        possibleArray4 = possibleArray3.concat(specialChar)
+      };
+
+      console.log(possibleArray4);
+
+      // RANDOMLY SELECT A VALUE FROM THE POSSIBLE
+      // JOIN THE PASSWORD ARRAY AND RETURN THE PASSWORD
+      var possibleArray = (possibleArray4.concat(possibleArray1, possibleArray2, possibleArray3));
+      var finalArray = possibleArray.join('');
+        console.log(finalArray);
+
+      var confirmFinalPass = window.confirm("Get ready for your new password!");
+      
+        if (confirmFinalPass === true) {
+          var finalPass = window.confirm("Here is your new password:", ((o = promptLength , n = finalArray) => Array.from(crypto.getRandomValues(new Uint32Array(o))).map(o => n[o % possibleArray.length]).join(""))());
+          var z = document.getElementById('password');
+          z.textContent = finalPass;
+          // return true to see the passcode
+          return true;
+        } else {
+          window.alert("Ok, see you next time!");
+        }
+    }
   };
-
-}
-
-// FOR LOOP OVER THE PASSWORD LENGTH
-// RANDOMLY SELECT A VALUE FROM THE POSSIBLE
-// JOIN THE PASSWORD ARRAY AND RETURN THE PASSWORD
-
-
-
-//Write password to the #password input
-function writePassword() {
-  var password = passwordGenerator();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-};
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", passwordGenerator);
