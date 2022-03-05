@@ -28,6 +28,28 @@ function getName() {
 
 getName();
 
+//crypto.getRandomValues(typedArray);
+/* Assuming that window.crypto.getRandomValues is available */
+//This only makes numeric codes- works but NA
+var array = new Uint32Array(1);
+self.crypto.getRandomValues(array);
+
+console.log("Your random password:");
+for (var i = 0; i < array.length; i++) {
+console.log(array[i]);
+}
+
+
+
+//function to generate a random numeric value
+var randomNumber = function() {
+  var value = Math.floor(Math.random() * 21) + 40;
+  console.log(value)
+  return value;
+};
+
+randomNumber();
+
 
 
 function passwordGenerator() {
@@ -95,18 +117,27 @@ function passwordGenerator() {
         console.log(finalArray);
 
       var confirmFinalPass = window.confirm("Get ready for your new password!");
-      
-        if (confirmFinalPass === true) {
-          var finalPass = window.confirm("Here is your new password:", ((o = promptLength , n = finalArray) => Array.from(crypto.getRandomValues(new Uint32Array(o))).map(o => n[o % possibleArray.length]).join(""))());
+         
+        if (confirmFinalPass) {
+          var finalPass = window.confirm("Here is your new password:", (( o = 8, n = "xvcovaehrpgqrb") => Array.from(crypto.getRandomValues(new Uint32Array(o))).map(o => n[o % finalArray.length]).join(""))());
           var z = document.getElementById('password');
           z.textContent = finalPass;
           // return true to see the passcode
           return true;
-        } else {
+        } 
+        else {
           window.alert("Ok, see you next time!");
         }
     }
   };
 
+   // Write password to the #password input
+function writePassword() {
+  var password = passwordGenerator();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", passwordGenerator);
+

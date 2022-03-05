@@ -32,25 +32,25 @@ getRandomInt();
 console.log(Math.random());
 // expected output: a number from 0 to <1 See below in function form 
 
-//crypto.getRandomValues(typedArray)
+crypto.getRandomValues(typedArray)
 /* Assuming that window.crypto.getRandomValues is available */
 //This only makes numeric codes- works but NA
-// var array = new Uint32Array(1);
-// self.crypto.getRandomValues(array);
+var array = new Uint32Array(1);
+self.crypto.getRandomValues(array);
 
-// console.log("Your random password:");
-// for (var i = 0; i < array.length; i++) {
-//   console.log(array[i]);
-// }
+console.log("Your random password:");
+for (var i = 0; i < array.length; i++) {
+console.log(array[i]);
+}
 
 
 
-// function to generate a random numeric value
-// var randomNumber = function() {
-//   var value = Math.floor(Math.random() * 21) + 40;
-//   console.log(value)
-//   return value;
-// };
+//function to generate a random numeric value
+var randomNumber = function() {
+  var value = Math.floor(Math.random() * 21) + 40;
+  console.log(value)
+  return value;
+};
 
 randomNumber();
 
